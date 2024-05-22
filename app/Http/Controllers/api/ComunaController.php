@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use app\Models\Comuna;
+use illuminate\support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ComunaController extends Controller
