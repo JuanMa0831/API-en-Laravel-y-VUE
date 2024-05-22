@@ -47,6 +47,11 @@ class ComunaController extends Controller
         -> orderBy('muni_nomb')
         -> get();
         return json_encode(['comuna'=> $comuna, 'municipios'=> $municipios]);
+
+        $comuna=Comuna::find($id);
+        if (is_null($comuna)){
+            return abort(404);
+        }
     }
 
     /**
@@ -63,6 +68,11 @@ class ComunaController extends Controller
         $comuna->muni_codi = $request->code;
         $comuna->save();
         return json_encode(['comuna'=>$comuna]);
+
+        $comuna=Comuna::find($id);
+        if (is_null($comuna)){
+            return abort(404);
+        }
     }
 
     /**
@@ -80,5 +90,10 @@ class ComunaController extends Controller
         -> select('tb_comuna.*', 'tb_municipio.muni_nomb')
         -> get();
         return json_encode(['comunas'=> $comunas, 'Success'=> true]);
+
+        $comuna=Comuna::find($id);
+        if (is_null($comuna)){
+            return abort(404);
+        }
     }
 }
