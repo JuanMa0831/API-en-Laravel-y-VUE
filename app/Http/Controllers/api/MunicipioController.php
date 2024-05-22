@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use app\Models\Municipio;
 use Illuminate\Http\Request;
+use illuminate\support\Facades\DB;
 
 class MunicipioController extends Controller
 {
@@ -14,7 +16,10 @@ class MunicipioController extends Controller
      */
     public function index()
     {
-        //
+        $municipios = DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+        return json_encode(['municipios'=>$municipios]);
     }
 
     /**
