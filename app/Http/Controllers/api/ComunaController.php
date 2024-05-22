@@ -4,8 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use app\Models\Comuna;
-use Dotenv\Validator;
-use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Validator;
 use illuminate\support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -87,6 +86,7 @@ class ComunaController extends Controller
             'statuscode' => 404
         ]);
     }
+    
         $comuna= Comuna::find($id);
         $comuna->comu_nomb = $request->name;
         $comuna->muni_codi = $request->code;
